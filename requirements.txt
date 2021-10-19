@@ -1,0 +1,16 @@
+django==3.2.8 # https://www.djangoproject.com/
+djangorestframework==3.12.4 #https://www.django-rest-framework.org/
+djangorestframework-simplejwt==5.0.0 #https://pypi.org/project/djangorestframework-simplejwt/
+drf-yasg==1.20.0 #https://drf-yasg.readthedocs.io/en/stable/index.html
+
+django-environ==0.8.0  # https://github.com/joke2k/django-environ
+
+PyJWT==2.3.0 #https://pyjwt.readthedocs.io/en/stable/
+Pillow==8.4.0 #https://pypi.org/project/Pillow/
+
+gunicorn==20.1.0 #https://pypi.org/project/gunicorn/
+psycopg2-binary==2.9.1 #https://pypi.org/project/psycopg2-binary/
+
+celery==5.1.2 #https://pypi.org/project/celery/
+redis==3.5.3 #https://pypi.org/project/redis/
+flower==1.0.0 #https://pypi.org/project/flower/
