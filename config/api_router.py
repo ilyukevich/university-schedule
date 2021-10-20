@@ -6,6 +6,8 @@ from apps.accounts.api.views import (RegistrationAPIView, LoginAPIView, LogoutAP
                                      ResetPasswordAPIView, UserViewSet, UserProfileViewSet)
 from apps.university.api.views import (FacultiesViewSet, DepartamentsViewSet, StudyGroupsViewSet,
                                        AuditoriesViewSet, DisciplinesViewSet)
+from apps.schedule.api.views import LessonsViewSet, ScheduleViewSet
+
 
 if settings.DEBUG:
     router = DefaultRouter()
@@ -23,6 +25,8 @@ router.register('departaments', DepartamentsViewSet, basename='faculty')
 router.register('study-groups', StudyGroupsViewSet, basename='study-group')
 router.register('auditories', AuditoriesViewSet, basename='auditory')
 router.register('disciplines', DisciplinesViewSet, basename='discipline')
+router.register('lessons', LessonsViewSet, basename='lesson')
+router.register('schedules', ScheduleViewSet, basename='schedule')
 
 
 additional_urls = [
