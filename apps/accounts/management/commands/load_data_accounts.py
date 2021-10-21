@@ -208,3 +208,5 @@ class Command(BaseCommand):
         student.groups.add(group_students)
         other.groups.add(group_others)
         print('Assigning users to groups... OK')
+
+        print('>>> Upload completed!')
