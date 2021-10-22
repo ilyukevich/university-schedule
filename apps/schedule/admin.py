@@ -5,7 +5,7 @@ from .models import Lessons, Schedule
 class LessonsAdmin(admin.ModelAdmin):
     """***"""
 
-    list_display = ('lesson_name', 'day', 'time', 'created', 'updated',)
+    list_display = ('auditory', 'lesson_name', 'day', 'time', 'created', 'updated',)
     list_display_links = ('lesson_name',)
     ordering = ('-created',)
     #fieldsets = ()

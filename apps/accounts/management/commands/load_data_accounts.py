@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.contrib.auth.models import Group, Permission
+
 from apps.accounts.models import Account
 
 
@@ -209,4 +210,4 @@ class Command(BaseCommand):
         other.groups.add(group_others)
         print('Assigning users to groups... OK')
 
-        print('>>> Upload completed!')
+        print('>>> Creation completed!')

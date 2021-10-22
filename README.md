@@ -14,7 +14,11 @@
 
 ```python manage.py migrate```
 
-```python manage.py python manage.py load_data_accounts```
+```python manage.py load_data_accounts```
+
+```python manage.py load_data_university```
+
+```python manage.py load_data_schedule```
 
 ```python manage.py runserver```
 
