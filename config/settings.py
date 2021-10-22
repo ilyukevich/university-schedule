@@ -208,7 +208,7 @@ SIMPLE_JWT = {
 SWAGGER_SETTINGS = {
     'DEFAULT_INFO': 'import.path.to.urls.api_info',
     'DEFAULT_AUTO_SCHEMA_CLASS': 'drf_yasg.inspectors.SwaggerAutoSchema',
-    'LOGIN_URL': '/admin/login/',
+    'LOGIN_URL': '/secureadmin/login/',
     'LOGOUT_URL': '/secureadmin/logout/',
     'SECURITY_DEFINITIONS': {
         'basic': {
