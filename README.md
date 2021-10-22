@@ -35,6 +35,15 @@
 
 ```http://localhost:8000/secureadmin```
 
+##get student schedule (set email and day)
+#### http://localhost/api/schedule-request/
+
+## Swagger:
+#### http://localhost/swagger/
+
+## Redoc:
+#### http://localhost/redoc/
+
 ## DRF
 #### http://localhost/api/
 #### http://localhost/api/token/ - token
@@ -44,8 +53,4 @@
 #### http://localhost/api/logout/ - logout
 #### http://localhost/api/reset-password/ - reset password
 
-## Swagger:
-#### http://localhost/swagger/
 
-## Redoc:
-#### http://localhost/redoc/

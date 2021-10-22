@@ -2,11 +2,12 @@ from django.conf import settings
 from rest_framework.urls import path
 from rest_framework.routers import DefaultRouter, SimpleRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 from apps.accounts.api.views import (RegistrationAPIView, LoginAPIView, LogoutAPIView,
                                      ResetPasswordAPIView, UserViewSet, UserProfileViewSet)
 from apps.university.api.views import (FacultiesViewSet, DepartamentsViewSet, StudyGroupsViewSet,
                                        AuditoriesViewSet, DisciplinesViewSet)
-from apps.schedule.api.views import LessonsViewSet, ScheduleViewSet
+from apps.schedule.api.views import LessonsViewSet, ScheduleViewSet, ScheduleRequestAPIView
 
 
 if settings.DEBUG:
@@ -36,6 +37,7 @@ additional_urls = [
     path('login/', LoginAPIView.as_view(), name='login'),
     path('logout/', LogoutAPIView.as_view(), name='logout'),
     path('reset-password/', ResetPasswordAPIView.as_view(), name='reset-password'),
+    path('schedule-request/', ScheduleRequestAPIView.as_view(), name='schedule-request'),
 
 ]
 

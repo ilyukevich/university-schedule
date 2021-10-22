@@ -16,3 +16,10 @@ class ScheduleSerializers(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Schedule
+
+
+class ScheduleRequestSerializer(serializers.Serializer):
+    """ScheduleRequest API to request"""
+
+    email = serializers.EmailField()
+    day = serializers.CharField(max_length=20, write_only=True,)

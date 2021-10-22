@@ -7,13 +7,13 @@ from django.core.mail import send_mail
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 from drf_yasg.utils import swagger_auto_schema
-from .serializers import (UserSerializer, UserProfileSerializer, LoginSerializer, RegistrationSerializer,
-                          LogoutSerializer, ResetPasswordSerializer)
-from ..models import Account, UserProfile
-from apps.accounts.tasks import user_created
 import environ
 import jwt
 import random
+
+from .serializers import (UserSerializer, UserProfileSerializer, LoginSerializer, RegistrationSerializer,
+                          LogoutSerializer, ResetPasswordSerializer)
+from ..models import Account, UserProfile
 
 
 env = environ.Env()
@@ -96,9 +96,6 @@ class RegistrationAPIView(APIView):
                 user.groups.add(group_students)
             elif request.data['role'] == 'Other':
                 user.groups.add(group_others)
-
-            # # task. Sent email for user after success registration
-            # user_created.delay(username)
 
             return Response(status=status.HTTP_201_CREATED,
                             data={
@@ -221,7 +218,7 @@ class ResetPasswordAPIView(APIView):
                 return Response(status=status.HTTP_400_BAD_REQUEST,
                                 data={"error": str(e)})
 
-            if Account.objects.get(email__exact=email) or Account.objects.get(email_2__exact=email):
+            if Account.objects.get(email__exact=email):
                 user_for_reset.set_password(new_password)
                 user_for_reset.save()
                 send_mail(subject_, message_, from_, [email],)
