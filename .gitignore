@@ -129,8 +129,8 @@ dmypy.json
 .pyre/
 
 
-#apps/accounts/migrations/
-#apps/university/migrations/
-#apps/schedule/migrations/
+apps/accounts/migrations/
+apps/university/migrations/
+apps/schedule/migrations/
 static/
 media/

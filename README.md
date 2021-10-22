@@ -5,26 +5,62 @@
 #### djangorestframework 3.12.4
 #### pillow 8.4.0
 
-## install:
-```git clone https://github.com/ilyukevich/university-schedule.git```
+# INSTALL (for linux)
 
-```pip install -r requirements.txt```
+1) Install docker, docker-compose:
+2) Git clone:
+
+```https://github.com/ilyukevich/university-schedule.git```
+
+3) Execute from the project folder:
+
+```sudo docker-compose up -d --build```
+
+4) Enter in container django:
+
+```sudo docker exec -it django bash```
+
+- Preparation of migrations:
 
 ```python manage.py makemigrations```
 
+- Applying migrations:
+
 ```python manage.py migrate```
 
-```python manage.py load_data_accounts```
+- Load data into database. Creating groups and permissions for them, creating superuser, creating users and selecting groups for them:
+
+```python manage.py load_data_into_database```
+
+- Load data into database for app University into database (Faculties, Departaments, StudyGroups, Auditories, Disciplines):
 
 ```python manage.py load_data_university```
 
+- Load data into database for app Schedule into database (Lessons, Schedule):
+
 ```python manage.py load_data_schedule```
+
+- Collection of all statics:
 
 ```python manage.py collectstatic```
 
-```python manage.py runserver```
+- Start celery:
 
-## authorization (login: password):
+```celery -A config worker -l INFO```
+
+###Info
+Start all containers. Use the key -d to run containers in the background:
+
+```sudo docker-compose up```
+
+Stop all containers:
+
+```sudo docker-compose stop```
+
+### Celery:
+- task. Sent email with schedule for user after request: http://localhost/api/schedule-request/
+
+### Authorization (login: password):
 ```role superuser - [admin@university-schedule.com: admin]```
 
 ```role administrator - [administrator@university-schedule.com: administrator]```
@@ -37,25 +73,25 @@
 
 ```role other - [other@university-schedule.com: other]```
 
-## access to the project:
+### Access to the project:
 ```http://localhost/ ```
 
 ```http://localhost/secureadmin/```
 
-##get student schedule (set email and day):
+### Get student schedule (set email and day):
 
 ```http://localhost/api/schedule-request/```
 
 ####email: admin@university-schedule.com
 ####day: Monday
 
-## Swagger:
+### Swagger:
 ```http://localhost/swagger/```
 
-## Redoc:
+### Redoc:
 ```http://localhost/redoc/```
 
-## DRF:
+### DRF:
 ```http://localhost/api/```
 
 ```http://localhost/api/token/ - token```

@@ -79,24 +79,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# # >>> for POSTGRESQL, use with .env
 # DATABASES = {
 #     'default': {
-#         'ENGINE': env.str('DB_ENGINE'),
-#         'NAME': env.str('DB_NAME'),
-#         'USER': env.str('POSTGRES_USER'),
-#         'PASSWORD': env.str('POSTGRES_PASSWORD'),
-#         'HOST': env.str('DB_HOST'),
-#         'PORT': env.int('DB_PORT'),
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+# >>> for POSTGRESQL, use with .env
+DATABASES = {
+    'default': {
+        'ENGINE': env.str('DB_ENGINE'),
+        'NAME': env.str('DB_NAME'),
+        'USER': env.str('POSTGRES_USER'),
+        'PASSWORD': env.str('POSTGRES_PASSWORD'),
+        'HOST': env.str('DB_HOST'),
+        'PORT': env.int('DB_PORT'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -209,7 +209,7 @@ SWAGGER_SETTINGS = {
     'DEFAULT_INFO': 'import.path.to.urls.api_info',
     'DEFAULT_AUTO_SCHEMA_CLASS': 'drf_yasg.inspectors.SwaggerAutoSchema',
     'LOGIN_URL': '/admin/login/',
-    'LOGOUT_URL': '/admin/logout/',
+    'LOGOUT_URL': '/secureadmin/logout/',
     'SECURITY_DEFINITIONS': {
         'basic': {
             'type': 'basic'
@@ -226,5 +226,5 @@ REDOC_SETTINGS = {
 # CELERY_BROKER_URL = "redis://localhost:6379/0"
 # CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 
-CELERY_BROKER_URL='redis://redis:6379/0'
-CELERY_RESULT_BACKEND='redis://redis:6379/0'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'

@@ -76,13 +76,14 @@ class ScheduleRequestAPIView(APIView):
             if Account.objects.get(email__exact=email):
                 id_for_request = user_for_request.id
                 username_for_request = user_for_request.id
+                username_ = user_for_request.username
 
                 count_lessons = Schedule.objects.get(day=day, student=id_for_request).lessons.count()
                 student_lessons = Schedule.objects.get(day=day, student=id_for_request).lessons.all()
                 lessons = student_lessons.values()
 
-                # # task. Sent email for user with his schedule
-                # sent_schedule.delay(username_for_request, id_for_request, email, count_lessons, lessons, day)
+                # task. Sent email for user with his schedule
+                sent_schedule.delay(username_, id_for_request, email, count_lessons, list(lessons), day)
 
                 return Response(status=status.HTTP_200_OK,
                                 data={
