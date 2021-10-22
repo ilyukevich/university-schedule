@@ -30,7 +30,7 @@
 
 - Load data into database. Creating groups and permissions for them, creating superuser, creating users and selecting groups for them:
 
-```python manage.py load_data_into_database```
+```python manage.py load_data_accounts```
 
 - Load data into database for app University into database (Faculties, Departaments, StudyGroups, Auditories, Disciplines):
 
@@ -48,7 +48,7 @@
 
 ```celery -A config worker -l INFO```
 
-###Info
+### Info:
 Start all containers. Use the key -d to run containers in the background:
 
 ```sudo docker-compose up```
@@ -82,8 +82,8 @@ Stop all containers:
 
 ```http://localhost/api/schedule-request/```
 
-####email: admin@university-schedule.com
-####day: Monday
+#### email: admin@university-schedule.com
+#### day: Monday
 
 ### Swagger:
 ```http://localhost/swagger/```
@@ -94,21 +94,39 @@ Stop all containers:
 ### DRF:
 ```http://localhost/api/```
 
-```http://localhost/api/token/ - token```
+```http://localhost/api/token/``` - token
 
-```http://localhost/api/token/refresh/ - refresh token```
+```http://localhost/api/token/refresh/``` - refresh token
 
-```http://localhost/api/registrations/ - registration```
+```http://localhost/api/registrations/``` - registration
 
-```http://localhost/api/login/ - login```
+```http://localhost/api/login/``` - login
 
-```http://localhost/api/logout/ - logout```
+```http://localhost/api/logout/``` - logout
 
-```http://localhost/api/reset-password/ - reset password```
+```http://localhost/api/reset-password/``` - reset password
 
-```http://localhost/api/schedule-request/ - request schedule for a student```
+```http://localhost/api/schedule-request/``` - request schedule for a student
 
-##TESTS:
+```http://localhost/api/users/``` - users
+
+```http://localhost/api/userprofiles/``` - userprofiles
+
+```http://localhost/api/departaments/``` - faculties
+
+```http://localhost/api/departaments/``` - departaments
+
+```http://localhost/api/study-groups/``` - study-groups
+
+```http://localhost/api/auditories/``` - auditories
+
+```http://localhost/api/disciplines/``` - disciplines
+
+```http://localhost/api/lessons/``` - lessons
+
+```http://localhost/api/schedules/``` - schedules
+
+### TESTS:
 
 1) enter in container django:
 
@@ -139,3 +157,9 @@ Stop all containers:
 ```python manage.py test -v 2 apps/schedule```
 
 ```python manage.py test -v 3 apps/accounts```
+
+## screen:
+
+![Screenshot](screen_1.png)
+![Screenshot](screen_2.png)
+![Screenshot](screen_3.png)
