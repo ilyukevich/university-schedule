@@ -23,6 +23,9 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    # index page
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    # admin page
     path(settings.ADMIN_URL, admin.site.urls),
     #path('admin/', admin.site.urls),
     # API base url

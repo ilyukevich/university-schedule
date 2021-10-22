@@ -63,12 +63,13 @@ class ScheduleRequestAPIView(APIView):
                                 data={"error": str(e)})
 
             try:
-                Schedule.objects.get(day=day)
+                Schedule.objects.get(student=user_for_request.id, day=day)
 
             except Exception as e:
                 if str(e) == 'Schedule matching query does not exist.':
                     return Response(status=status.HTTP_404_NOT_FOUND,
-                                    data={"error": "Error, Schedule not found on this day!"})
+                                    data={"error": f"Error, {user_for_request.username}, "
+                                                   f"schedule for not found on this day! Example day: Monday"})
                 return Response(status=status.HTTP_400_BAD_REQUEST,
                                 data={"error": str(e)})
 
@@ -85,7 +86,7 @@ class ScheduleRequestAPIView(APIView):
 
                 return Response(status=status.HTTP_200_OK,
                                 data={
-                                    "Day": day,
+                                    "day": day,
                                     "student": username_for_request,
                                     "id": id_for_request,
                                     "email": email,
