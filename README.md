@@ -46,7 +46,7 @@
 
 - Start celery:
 
-```celery -A config worker -l INFO```
+```celery -A config worker -l INFO -B```
 
 ### Info:
 Start all containers. Use the key -d to run containers in the background:
@@ -58,6 +58,7 @@ Stop all containers:
 ```sudo docker-compose stop```
 
 ### Celery:
+- periodic_task. Every day at 6:00 AM, emails are sent to those students who have lessons that day.
 - task. Sent email with schedule for user after request: http://localhost/api/schedule-request/
 
 ### Authorization (login: password):
@@ -160,6 +161,10 @@ Stop all containers:
 
 ## screen:
 
+![Screenshot](screen_4.png)
+![Screenshot](screen_7.png)
 ![Screenshot](screen_1.png)
 ![Screenshot](screen_2.png)
 ![Screenshot](screen_3.png)
+![Screenshot](screen_5.png)
+![Screenshot](screen_6.png)
