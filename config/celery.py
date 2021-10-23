@@ -13,7 +13,7 @@ def setup_periodic_tasks(sender, **kwargs):
 
     # Executes every day morning at 6:00 a.m.
     sender.add_periodic_task(
-        crontab(hour=18, minute=4),
+        crontab(hour=6, minute=0),
         daily_schedule_mailing.s(),
     )
 
