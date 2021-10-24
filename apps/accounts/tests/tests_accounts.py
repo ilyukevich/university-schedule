@@ -82,22 +82,8 @@ class AccountTest(TestCase):
         self.assertEqual(response, False)
 
 
-class PageTest(TestCase):
+class PageTest(AccountTest):
     """Common tests for checking pages"""
-
-    def setUp(self):
-        """Fixtures"""
-
-        self.username = 'new_user'
-        self.role = 'User'
-        self.email = 'newuser@crm.com'
-        self.passwd = '1234'
-        self.auth_client = Client()
-        self.unauth_client = Client()
-        self.user_auth = Account.objects.create(username=self.username, password=self.passwd, email=self.email)
-        self.user_unauth = Account.objects.create(username='anonimus')
-        self.auth_client.force_login(self.user_auth)
-        cache.clear()
 
     def test_index_page(self):
         """home page request test"""
@@ -109,7 +95,7 @@ class PageTest(TestCase):
         """admin page request test"""
 
         response = self.auth_client.get('/secureadmin/')
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
 
     def test_404_page(self):
         """404 error request test"""

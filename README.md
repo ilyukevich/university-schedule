@@ -4,6 +4,9 @@
 #### drf-yasg 1.20.0
 #### djangorestframework 3.12.4
 #### pillow 8.4.0
+#### celery 5.1.2 
+#### redis 3.5.3 
+#### flower 1.0.0
 
 # INSTALL (for linux)
 
@@ -168,3 +171,4 @@ Stop all containers:
 ![Screenshot](screen_3.png)
 ![Screenshot](screen_5.png)
 ![Screenshot](screen_6.png)
+![Screenshot](screen_8.png)
